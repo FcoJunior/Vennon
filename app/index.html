@@ -22,7 +22,7 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+      <div class="nav navbar-inverse" role="navigation">
         <div class="container">
           <div class="navbar-header">
 
@@ -33,13 +33,21 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">vennon</a>
+            <a class="navbar-brand" href="#/">Vennon</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="#/">Home</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Cadastro <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a ng-href="#/cliente">Cliente</a></li>
+                  <li><a ng-href="#/funcionario">Funcionário</a></li>
+                  <li><a ng-href="#/fornecedor">Fornecedor</a></li>
+                </ul>
+              </li>  
               <li><a ng-href="#/about">About</a></li>
               <li><a ng-href="#/">Contact</a></li>
             </ul>
@@ -48,12 +56,12 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" ng-controller="BaseCtrl">
     <div ng-view=""></div>
     </div>
 
-    <div class="footer">
-      <div class="container">
+    <div class="footer navbar-fixed-bottom">
+      <div class="container text-center">
         <p>Vennon | Todos os direitos reservados</p>
       </div>
     </div>
@@ -83,6 +91,9 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/br-validations/releases/br-validations.js"></script>
+    <script src="bower_components/string-mask/src/string-mask.js"></script>
+    <script src="bower_components/angular-input-masks/angular-input-masks.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -90,6 +101,8 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/cliente.js"></script>
+        <script src="scripts/controllers/base.js"></script>
         <!-- endbuild -->
 </body>
 </html>

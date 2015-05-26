@@ -17,7 +17,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.utils.masks'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -29,6 +30,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      //Views Cliente
+      .when('/cliente', {templateUrl: 'views/cliente/cliente.html', controller: 'ClienteCtrl'})
+      .when('/cliente/new', {templateUrl: 'views/cliente/form.html', controller: 'ClienteCtrl'})
+      //Default
       .otherwise({
         redirectTo: '/'
       });

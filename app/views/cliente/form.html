@@ -1,0 +1,24 @@
+<h3>Clientes</h3>
+<ol class="breadcrumb">
+  <li><a ng-href="#/cliente">Lista de clientes</a></li>
+  <li class="active">Novo cliente</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form class="form-horizontal" ng-submit="send()">
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Nome</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" maxlength="150" ng-model="cliente.name"></input>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">CPF</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" ng-model="cliente.cpf" ui-br-cpf-mask></input>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
