@@ -14,7 +14,13 @@ angular.module('vennonApp')
       'AngularJS',
       'Karma'
     ];
-
+    $scope.cliente = {};
+    $scope.cliente = [];
+    $http.get('scripts/mocks/estados.json').success(function(data){
+      $scope.estados = data;
+    });
     
-    
+    $scope.send = function(cliente){
+      console.log(cliente);
+    };
   }]);

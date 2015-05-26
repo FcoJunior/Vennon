@@ -5,7 +5,7 @@
 </ol>
 <div class="panel panel-default">
 	<div class="panel-body">
-		<form class="form-horizontal" ng-submit="send()">
+		<form class="form-horizontal" ng-submit="send(cliente)">
 			
 			<h4>Dados pessoais:</h4>
 			<div class="form-group">
@@ -70,10 +70,12 @@
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Estado</label>
 				<div class="col-lg-2">
-					<select class="form-control" ng-init="ufs=['AC', 'AL','CE']" ng-model="cliente.endereco.estado" ng-options="uf for uf in ufs"></select>
+					<select class="form-control" ng-init="estados" ng-model="cliente.endereco.estado" ng-options="uf.Sigla for uf in estados"></select>
 				</div>
 			</div>
 			
+			
+			<button type="submit">Cadastrar</button>
 		</form>
 	</div>
 </div>
