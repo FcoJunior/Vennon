@@ -8,7 +8,7 @@
  * Factory in the vennonApp.
  */
 angular.module('vennonApp')
-  .factory('baseFactory',['$http', '$location', 'config', function ($http, $location, config) {
+  .factory('baseFactory',['$http', 'config', function ($http, config) {
     // Service logic
     // ...
     
@@ -22,7 +22,7 @@ angular.module('vennonApp')
 
     // Public API here
     return {
-      create : create,
-      show : show
+      create: create,
+      show: show
     };
   }]);
