@@ -26,10 +26,29 @@
 				<tr ng-repeat="client in AllClient">
 					<td><input type="checkbox"/></td>
 					<td>{{client.ClienteID}}</td>
-					<td>{{client.nome}}</td>
+					<td style="cursor: pointer" data-toggle="modal" data-target="#viewClient"><a>{{client.nome}}</a></td></td>
 					<td>{{client.CPF}}</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="viewClient" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cliente</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Editar</button>
+      </div>
+    </div>
+  </div>
 </div>

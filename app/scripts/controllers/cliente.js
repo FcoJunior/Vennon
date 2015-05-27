@@ -8,7 +8,7 @@
  * Controller of the vennonApp
  */
 angular.module('vennonApp')
-  .controller('ClienteCtrl',['$scope', 'baseFactory', function ($scope, baseFactory) {
+  .controller('ClienteCtrl',['$scope', '$http', 'baseFactory', function ($scope, $http, baseFactory) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -20,6 +20,23 @@ angular.module('vennonApp')
     });
 
     $scope.send = function(cliente){
-      console.log(cliente);
+      var entity = {};
+      entity.nome = cliente.nome;
+      entity.CPF = cliente.CPF;
+      entity.contato = [];
+      entity.contato.push(cliente.contato);
+      entity.endereco = [];
+      entity.endereco.push(cliente.endereco);
+      
+      //$http.post('http://localhost:16979/api/cliente', entity).error(function(){alert("error");});
+      
+      
+      baseFactory.create('cliente', entity)
+      .success(function(){
+        
+      })
+      .error(function(){
+        alert("erro");
+      });
     };
   }]);

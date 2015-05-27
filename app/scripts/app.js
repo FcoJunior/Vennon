@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('vennonApp', [
     'ngAnimate',
     'ngAria',
@@ -19,8 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.utils.masks'
-  ])
-  .config(function ($routeProvider) {
+  ]);
+  app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -38,3 +38,9 @@ angular
         redirectTo: '/'
       });
   });
+  
+app.config(['$httpProvider', function ($httpProvider) {
+  $httpProvider.defaults.useXDomain = true;
+  $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+}]);
