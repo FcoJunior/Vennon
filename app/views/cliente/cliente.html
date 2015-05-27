@@ -12,7 +12,7 @@
 				<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button>
 			</div>
 		</div>
-		
+
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -23,17 +23,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><input type="checkbox"></input></td>
-					<td>1</td>
-					<td>Junior</td>
-					<td>0505050505</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></input></td>
-					<td>2</td>
-					<td>João</td>
-					<td>0505050505</td>
+				<tr ng-repeat="client in AllClient">
+					<td><input type="checkbox"/></td>
+					<td>{{client.ClienteID}}</td>
+					<td>{{client.nome}}</td>
+					<td>{{client.CPF}}</td>
 				</tr>
 			</tbody>
 		</table>

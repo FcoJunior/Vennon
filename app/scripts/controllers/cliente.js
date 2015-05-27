@@ -19,7 +19,10 @@ angular.module('vennonApp')
     $http.get('scripts/mocks/estados.json').success(function(data){
       $scope.estados = data;
     });
-    
+    $http.get('http://localhost:16979/api/cliente').success(function(data){
+      $scope.AllClient = data;
+    });
+
     $scope.send = function(cliente){
       console.log(cliente);
     };
