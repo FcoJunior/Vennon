@@ -8,18 +8,14 @@
  * Controller of the vennonApp
  */
 angular.module('vennonApp')
-  .controller('ClienteCtrl',['$scope', '$http', function ($scope, $http) {
+  .controller('ClienteCtrl',['$scope', 'baseFactory', function ($scope, baseFactory) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    $scope.cliente = {};
-    $scope.cliente = [];
-    $http.get('scripts/mocks/estados.json').success(function(data){
-      $scope.estados = data;
-    });
-    $http.get('http://localhost:16979/api/cliente').success(function(data){
+    
+    baseFactory.show('cliente').success(function (data) {
       $scope.AllClient = data;
     });
 
