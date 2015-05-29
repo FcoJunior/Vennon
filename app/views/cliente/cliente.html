@@ -5,12 +5,12 @@
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="col-lg-12 text-right">
-			<a ng-href="#/cliente/new"><button type="button" ng-click="teste()" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Novo</button></a>
-			<div class="btn-group">
+			<a ng-href="#/cliente/new"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Novo</button></a>
+			<!--<div class="btn-group">
 				<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
 				<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
 				<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button>
-			</div>
+			</div>-->
 		</div>
 
 		<table class="table table-striped">
@@ -20,6 +20,7 @@
 					<th>Cod.</th>
 					<th>Nome</th>
 					<th>CPF</th>
+					<th>Acão</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,6 +29,10 @@
 					<td>{{client.ClienteID}}</td>
 					<td style="cursor: pointer"  ng-click="getClientById(client.ClienteID)" data-toggle="modal" data-target="#viewClient"><a>{{client.nome}}</a></td></td>
 					<td>{{client.CPF}}</td>
+					<td>
+						<a ng-href="#/cliente/update/{{client.ClienteID}}"><span data-toggle="tooltip" data-placement="top" title="Editar" class="glyphicon glyphicon-pencil"></span></a> 
+						<a ng-click="delete(client.ClienteID)" ><span data-toggle="tooltip" data-placement="top" title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -47,7 +52,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <a ng-href="#/cliente/update/{{clientUpdate.ClienteID}}"><button type="button" class="btn btn-primary">Editar</button></a>
+		<!-- O background do modal continua -->
+        <!--<a ng-href="#/cliente/update/{{clientUpdate.ClienteID}}"><button type="button" class="btn btn-primary">Editar</button></a>-->
       </div>
     </div>
   </div>

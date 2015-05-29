@@ -48,4 +48,11 @@ angular.module('vennonApp')
     $scope.update = function (cliente) {
       baseFactory.update('cliente/' + cliente.ClienteID, cliente);
     };
+    
+    $scope.delete = function(id){
+      baseFactory.destroy('cliente/' + id)
+      .success(function(){
+        alert("Cliente excluido com sucesso!!");
+      });
+    };
   }]);

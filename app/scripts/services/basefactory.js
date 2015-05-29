@@ -23,11 +23,16 @@ angular.module('vennonApp')
     function show(path){
       return $http.get(config.server + path);
     };
+    
+    function destroy(path){
+      return $http.delete(config.server + path);
+    };
 
     // Public API here
     return {
       create: create,
       update: update,
+      destroy: destroy,
       show: show
     };
   }]);
