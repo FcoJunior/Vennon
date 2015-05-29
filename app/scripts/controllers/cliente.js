@@ -8,7 +8,7 @@
  * Controller of the vennonApp
  */
 angular.module('vennonApp')
-  .controller('ClienteCtrl',['$scope', '$http', 'baseFactory', function ($scope, $http, baseFactory) {
+  .controller('ClienteCtrl',['$scope', '$http', 'baseFactory', '$location', function ($scope, $http, baseFactory, $location) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -30,7 +30,8 @@ angular.module('vennonApp')
       //Função para enviar dados para o back-end
       baseFactory.create('cliente', entity)
       .success(function(){
-        
+          alert("Cliente cadastrado com sucesso!!");
+          $location.path('/cliente');
       })
       .error(function(){
         alert("erro");
@@ -43,10 +44,6 @@ angular.module('vennonApp')
         $scope.clientUpdate = data;
         console.log(data);
       });
-    };
-    
-    $scope.update = function (cliente) {
-      baseFactory.update('cliente/' + cliente.ClienteID, cliente);
     };
     
     $scope.delete = function(id){

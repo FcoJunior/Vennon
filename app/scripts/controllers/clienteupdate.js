@@ -18,6 +18,9 @@ angular.module('vennonApp')
     var clientID = $routeParams.clienteID;
     baseFactory.show('cliente/' + clientID).success(function(data){
         $scope.cliente = data;
+        $scope.cliente.endereco = data.endereco[0];
+        $scope.cliente.contato = data.contato[0];
+        console.log(data);
       });
       
     $scope.clientUpdate = function(cliente){
@@ -35,7 +38,7 @@ angular.module('vennonApp')
       
       console.log(entity);
       
-      baseFactory.update('/cliente/' + this.clientID, entity)
+      baseFactory.update('cliente/' + entity.ClienteID, entity)
       .success(function(){
         alert("Cliente alterado com sucesso!!");
         $location.path('/cliente');
