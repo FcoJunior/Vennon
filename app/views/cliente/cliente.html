@@ -26,7 +26,7 @@
 				<tr ng-repeat="client in AllClient">
 					<td><input type="checkbox"/></td>
 					<td>{{client.ClienteID}}</td>
-					<td style="cursor: pointer" data-toggle="modal" data-target="#viewClient"><a>{{client.nome}}</a></td></td>
+					<td style="cursor: pointer"  ng-click="getClientById(client.ClienteID)" data-toggle="modal" data-target="#viewClient"><a>{{client.nome}}</a></td></td>
 					<td>{{client.CPF}}</td>
 				</tr>
 			</tbody>
@@ -43,11 +43,11 @@
         <h4 class="modal-title" id="myModalLabel">Cliente</h4>
       </div>
       <div class="modal-body">
-        ...
+        {{clientUpdate.nome}}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Editar</button>
+        <a ng-href="#/cliente/update/{{clientUpdate.ClienteID}}"><button type="button" class="btn btn-primary">Editar</button></a>
       </div>
     </div>
   </div>

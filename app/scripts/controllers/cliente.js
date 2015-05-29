@@ -27,10 +27,7 @@ angular.module('vennonApp')
       entity.contato.push(cliente.contato);
       entity.endereco = [];
       entity.endereco.push(cliente.endereco);
-      
-      //$http.post('http://localhost:16979/api/cliente', entity).error(function(){alert("error");});
-      
-      
+      //Função para enviar dados para o back-end
       baseFactory.create('cliente', entity)
       .success(function(){
         
@@ -38,5 +35,17 @@ angular.module('vennonApp')
       .error(function(){
         alert("erro");
       });
+    };
+    
+    $scope.getClientById = function (entity) {
+      console.log(entity);
+      baseFactory.show('cliente/' + entity).success(function(data){
+        $scope.clientUpdate = data;
+        console.log(data);
+      });
+    };
+    
+    $scope.update = function (cliente) {
+      baseFactory.update('cliente/' + cliente.ClienteID, cliente);
     };
   }]);

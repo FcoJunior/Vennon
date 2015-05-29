@@ -5,20 +5,20 @@
 </ol>
 <div class="panel panel-default">
 	<div class="panel-body">
-		<form class="form-horizontal" ng-submit="send(cliente)">
-			
+		<form class="form-horizontal" ng-submit="send(cliente)">			
+			<!-- form -->
 			<h4>Dados pessoais:</h4>
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Nome</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" maxlength="150" ng-model="cliente.nome" required="required"></input>
+					<input type="text" class="form-control" maxlength="150" ng-model="cliente.nome" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">CPF</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.CPF" ui-br-cpf-mask required="required"></input>
+					<input type="text" class="form-control" ng-model="cliente.CPF" ui-br-cpf-mask required="required"/>
 				</div>
 			</div>
 			<hr class="divider"/>
@@ -28,42 +28,42 @@
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Logradouro</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.logradouro" maxlength="150" required="required"></input>
+					<input type="text" class="form-control" ng-model="cliente.endereco.logradouro" maxlength="150" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Complemento</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.complemento" maxlength="150"></input>
+					<input type="text" class="form-control" ng-model="cliente.endereco.complemento" maxlength="150"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Número</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.numero" maxlength="6" required="required"></input>
+					<input type="text" class="form-control" ng-model="cliente.endereco.numero" maxlength="6" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">CEP</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.CEP" ui-br-cep-mask></input>
+					<input type="text" class="form-control" ng-model="cliente.endereco.CEP" ui-br-cep-mask/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Bairro</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.bairro" maxlength="50"></input>
+					<input type="text" class="form-control" ng-model="cliente.endereco.bairro" maxlength="50"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Cidade</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.cidade" maxlength="150" required="required"></input>
+					<input type="text" class="form-control" ng-model="cliente.endereco.cidade" maxlength="150" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
@@ -79,25 +79,29 @@
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Email</label>
 				<div class="col-lg-10">
-					<input type="email" class="form-control" ng-model="cliente.contato.email" maxlength="150" required="required"></input>
+					<input type="email" class="form-control" ng-model="cliente.contato.email" maxlength="150" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Telefone fixo</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.contato.telefone" ui-br-phone-number required="required"></input>
+					<input type="text" class="form-control" ng-model="cliente.contato.telefone" ui-br-phone-number required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Telefone celular</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.contato.celular" ui-br-phone-number required="required"></input>
+					<input type="text" class="form-control" ng-model="cliente.contato.celular" ui-br-phone-number required="required"/>
 				</div>
 			</div>
-			
-			<button type="submit">Cadastrar</button>
+
+			<div class="form-group">
+				<div class="col-lg-12 text-right">
+					<button class="btn btn-success" type="submit">Cadastrar</button>
+				</div>
+			</div>
 		</form>
 	</div>
 </div>

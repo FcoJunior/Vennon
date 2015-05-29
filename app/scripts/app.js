@@ -32,7 +32,8 @@ var app = angular
       })
       //Views Cliente
       .when('/cliente', {templateUrl: 'views/cliente/cliente.html', controller: 'ClienteCtrl'})
-      .when('/cliente/new', {templateUrl: 'views/cliente/form.html', controller: 'ClienteCtrl'})
+      .when('/cliente/new', {templateUrl: 'views/cliente/create.html', controller: 'ClienteCtrl'})
+      .when('/cliente/update/:ClienteID', {templateUrl: 'views/cliente/editar.html', controller: 'ClienteCtrl'})
       //Default
       .otherwise({
         redirectTo: '/'

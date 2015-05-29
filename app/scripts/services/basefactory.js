@@ -16,6 +16,10 @@ angular.module('vennonApp')
       return $http.post(config.server + path, entity);
     };
     
+    function update(path, entity){
+      return $http.put(config.server + path, entity);
+    };
+    
     function show(path){
       return $http.get(config.server + path);
     };
@@ -23,6 +27,7 @@ angular.module('vennonApp')
     // Public API here
     return {
       create: create,
+      update: update,
       show: show
     };
   }]);
