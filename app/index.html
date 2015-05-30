@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -44,6 +45,7 @@
                 <a class="dropdown-toggle" data-toggle="dropdown">Cadastro <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a ng-href="#/cliente">Cliente</a></li>
+                  <li><a ng-href="#/cargo">Cargo</a></li>  
                   <li><a ng-href="#/funcionario">Funcionário</a></li>
                   <li><a ng-href="#/fornecedor">Fornecedor</a></li>
                 </ul>
@@ -94,18 +96,25 @@
     <script src="bower_components/br-validations/releases/br-validations.js"></script>
     <script src="bower_components/string-mask/src/string-mask.js"></script>
     <script src="bower_components/angular-input-masks/angular-input-masks.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/angular-sweetalert/SweetAlert.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <!-- Config -->
         <script src="scripts/app.js"></script>
+        <!-- Services -->
         <script src="scripts/services/config.js"></script>
+        <script src="scripts/services/basefactory.js"></script>
+        <script src="scripts/services/messagefactory.js"></script>
+        <!-- Controllers -->  
+        <script src="scripts/controllers/base.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/cliente.js"></script>
-        <script src="scripts/controllers/base.js"></script>
-        <script src="scripts/services/basefactory.js"></script>
-        <script src="scripts/controllers/clienteupdate.js"></script>
+        <script src="scripts/controllers/cargo.js"></script>
+        <script src="scripts/controllers/funcionario.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -1,0 +1,30 @@
+<h3>Cargos</h3>
+<ol class="breadcrumb">
+  <li><a ng-href="#/cargo">Lista de cargos</a></li>
+  <li class="active">Editar cargo</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form class="form-horizontal" ng-submit="cargoUpdate(cargo)">
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Código</label>
+				<div class="col-lg-10">
+					<label class="form-control" ng-model="cargo.CargoID">{{cargo.CargoID}}</label>
+				</div>
+			</div>
+			<!--/form-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Cargo</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" maxlength="150" ng-model="cargo.cargo" required="required" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-lg-12 text-right">
+					<button class="btn btn-success" type="submit">Atualizar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

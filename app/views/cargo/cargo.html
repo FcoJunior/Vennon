@@ -1,0 +1,31 @@
+<h3>Cargos</h3>
+<ol class="breadcrumb">
+  <li class="active">Lista de cargos</li>
+</ol>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="col-lg-12 text-right">
+			<a ng-href="#/cargo/new"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Novo</button></a>
+		</div>
+    
+    <table class="table table-striped text-center">
+      <thead>
+        <tr>
+          <th class="text-center">Cod.</th>
+          <th class="text-center">Cargo</th>
+          <th class="text-center">Ação</th>    
+        </tr>
+        <tbody>
+          <tr ng-repeat="cargo in AllCargo">
+            <td>{{cargo.CargoID}}</td>
+            <td>{{cargo.cargo}}</td>
+            <td>
+              <a ng-href="#/cargo/update/{{cargo.CargoID}}"><span data-toggle="tooltip" data-placement="top" title="Editar" class="glyphicon glyphicon-pencil"></span></a> 
+	   					<a ng-click="delete(cargo.CargoID, $index)" ><span data-toggle="tooltip" data-placement="top" title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+            </td>
+          </tr>
+        </tbody>
+      </thead>
+    </table>
+  </div>
+</div>

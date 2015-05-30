@@ -18,7 +18,8 @@ var app = angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.utils.masks'
+    'ui.utils.masks',
+    'oitozero.ngSweetAlert'
   ]);
   app.config(function ($routeProvider) {
     $routeProvider
@@ -33,7 +34,18 @@ var app = angular
       //Views Cliente
       .when('/cliente', {templateUrl: 'views/cliente/cliente.html', controller: 'ClienteCtrl'})
       .when('/cliente/new', {templateUrl: 'views/cliente/create.html', controller: 'ClienteCtrl'})
-      .when('/cliente/update/:clienteID', {templateUrl: 'views/cliente/editar.html', controller: 'ClienteUpdateCtrl'})
+      .when('/cliente/update/:clienteID', {templateUrl: 'views/cliente/editar.html', controller: 'ClienteCtrl'})
+      
+      //Views Cargo
+      .when('/cargo', {templateUrl: 'views/cargo/cargo.html', controller: 'CargoCtrl'})
+      .when('/cargo/new', {templateUrl: 'views/cargo/create.html', controller: 'CargoCtrl'})
+      .when('/cargo/update/:cargoID', {templateUrl: 'views/cargo/editar.html', controller: 'CargoCtrl'})
+      
+      //Views Funcionario
+      .when('/funcionario', {templateUrl: 'views/funcionario/funcionario.html', controller: 'FuncionarioCtrl'})
+      .when('/funcionario/new', {templateUrl: 'views/funcionario/create.html', controller: 'FuncionarioCtrl'})
+      .when('/funcionario/update/:funcionarioID', {templateUrl: 'views/funcionario/editar.html', controller: 'FuncionarioCtrl'})
+      
       //Default
       .otherwise({
         redirectTo: '/'

@@ -1,30 +1,31 @@
-<h3>Clientes</h3>
+<h3>Funcionário</h3>
 <ol class="breadcrumb">
-  <li><a ng-href="#/cliente">Lista de clientes</a></li>
-  <li class="active">Editar cliente</li>
+  <li><a ng-href="#/funcionario">Lista de funcionários</a></li>
+  <li class="active">Novo funcionário</li>
 </ol>
 <div class="panel panel-default">
 	<div class="panel-body">
-		<form class="form-horizontal" ng-submit="clientUpdate(cliente)">
+		<form class="form-horizontal" ng-submit="send(funcionario)">			
+			<!-- form -->
 			<h4>Dados pessoais:</h4>
-			<div class="form-group">
-				<label class="col-lg-2 control-label">Código</label>
-				<div class="col-lg-10">
-					<label class="form-control" ng-model="cliente.ClienteID">{{cliente.ClienteID}}</label>
-				</div>
-			</div>
-			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Nome</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" maxlength="150" ng-model="cliente.nome" required="required"/>
+					<input type="text" class="form-control" maxlength="150" ng-model="funcionario.nome" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">CPF</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.CPF" ui-br-cpf-mask required="required"/>
+					<input type="text" class="form-control" ng-model="funcionario.CPF" ui-br-cpf-mask required="required"/>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Cargo</label>
+				<div class="col-lg-8">
+					<select class="form-control" ng-init="cargoList" ng-model="funcionario.cargo" ng-options="c.cargo for c in cargoList"></select>
 				</div>
 			</div>
 			<hr class="divider"/>
@@ -34,49 +35,49 @@
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Logradouro</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.logradouro" maxlength="150" required="required"/>
+					<input type="text" class="form-control" ng-model="funcionario.endereco.logradouro" maxlength="150" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Complemento</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.complemento" maxlength="150"/>
+					<input type="text" class="form-control" ng-model="funcionario.endereco.complemento" maxlength="150"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Número</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.numero" maxlength="6" required="required"/>
+					<input type="text" class="form-control" ng-model="funcionario.endereco.numero" maxlength="6" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">CEP</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.CEP" ui-br-cep-mask/>
+					<input type="text" class="form-control" ng-model="funcionario.endereco.CEP" ui-br-cep-mask/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Bairro</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.bairro" maxlength="50"/>
+					<input type="text" class="form-control" ng-model="funcionario.endereco.bairro" maxlength="50"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Cidade</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.endereco.cidade" maxlength="150" required="required"/>
+					<input type="text" class="form-control" ng-model="funcionario.endereco.cidade" maxlength="150" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Estado</label>
 				<div class="col-lg-2">
-					<select class="form-control" ng-init="ufs=['CE', 'RJ', 'RS', 'AL']" ng-model="cliente.endereco.estado" ng-options="uf for uf in ufs"></select>
+					<select class="form-control" ng-init="ufs=['CE', 'RJ', 'RS', 'AL']" ng-model="funcionario.endereco.estado" ng-options="uf for uf in ufs"></select>
 				</div>
 			</div>
 			<hr class="divider"/>
@@ -85,26 +86,27 @@
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Email</label>
 				<div class="col-lg-10">
-					<input type="email" class="form-control" ng-model="cliente.contato.email" maxlength="150" required="required"/>
+					<input type="email" class="form-control" ng-model="funcionario.contato.email" maxlength="150" required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Telefone fixo</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.contato.telefone" ui-br-phone-number required="required"/>
+					<input type="text" class="form-control" ng-model="funcionario.contato.telefone" ui-br-phone-number required="required"/>
 				</div>
 			</div>
 			<!--/from-group-->
 			<div class="form-group">
 				<label class="col-lg-2 control-label">Telefone celular</label>
 				<div class="col-lg-10">
-					<input type="text" class="form-control" ng-model="cliente.contato.celular" ui-br-phone-number required="required"/>
+					<input type="text" class="form-control" ng-model="funcionario.contato.celular" ui-br-phone-number required="required"/>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<div class="col-lg-12 text-right">
-					<button class="btn btn-success" type="submit">Atualizar</button>
+					<button class="btn btn-success" type="submit">Cadastrar</button>
 				</div>
 			</div>
 		</form>

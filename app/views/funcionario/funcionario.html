@@ -1,0 +1,92 @@
+<h3>Funcionários</h3>
+<ol class="breadcrumb">
+  <li class="active">Lista de funcionários</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="col-lg-12 text-right">
+			<a ng-href="#/funcionario/new"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Novo</button></a>
+		</div>
+
+		<table class="table table-striped text-center">
+			<thead>
+				<tr>
+					<th class="text-center">Cod.</th>
+					<th class="text-center">Nome</th>
+					<th class="text-center">CPF</th>
+					<th class="text-center">Comissão</th>	
+					<th class="text-center">Acão</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="funcionario in AllFuncionario">
+					<td>{{funcionario.FuncionarioID}}</td>
+					<td style="cursor: pointer"  ng-click="funcionarioDetail(funcionario.FuncionarioID)" data-toggle="modal" data-target="#viewFuncionario"><a>{{funcionario.nome}}</a></td></td>
+					<td>{{funcionario.CPF}}</td>
+					<td>{{funcionario.comissao}}</td>
+					<td>
+						<a ng-href="#/funcionario/update/{{funcionario.FuncionarioID}}"><span data-toggle="tooltip" data-placement="top" title="Editar" class="glyphicon glyphicon-pencil"></span></a> 
+						<a ng-click="delete(funcionario.FuncionarioID, $index)" ><span data-toggle="tooltip" data-placement="top" title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="viewFuncionario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Funcionário</h4>
+      </div>
+      <div class="modal-body">
+        <dl class="dl-horizontal">
+			<h3>Dados pessoais</h3>
+			<dt>Código</dt>
+			<dd>{{funcionario.FuncionarioID}}</dd>
+			<dt>Nome</dt>
+			<dd>{{funcionario.nome}}</dd>
+			<dt>CPF</dt>
+			<dd>{{funcionario.CPF}}</dd>
+			<dt>Comissão</dt>
+			<dd>{{funcionario.comissao}}</dd>
+			<dt>Cargo</dt>
+			<dd>{{funcionario.cargo.cargo}}</dd>
+			
+			<h3>Endereço</h3>
+			<dt>Logradouro</dt>
+			<dd>{{funcionario.endereco.logradouro}}</dd>
+			<dt>Complemento</dt>
+			<dd>{{funcionario.endereco.complemento}}</dd>
+			<dt>Numero</dt>
+			<dd>{{funcionario.endereco.numero}}</dd>
+			<dt>CEP</dt>
+			<dd>{{funcionario.endereco.CEP}}</dd>
+			<dt>Bairro</dt>
+			<dd>{{funcionario.endereco.bairro}}</dd>
+			<dt>Cidade</dt>
+			<dd>{{funcionario.endereco.cidade}}</dd>
+			<dt>Estado</dt>
+			<dd>{{funcionario.endereco.estado}}</dd>
+			
+			<h3>Contato</h3>
+			<dt>E-mail</dt>
+			<dd>{{funcionario.contato.email}}</dd>
+			<dt>Telefone</dt>
+			<dd>{{funcionario.contato.telefone}}</dd>
+			<dt>Celular</dt>
+			<dd>{{funcionario.contato.celular}}</dd>
+			
+		</dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<!-- O background do modal continua -->
+        <!--<a ng-href="#/cliente/update/{{clientUpdate.ClienteID}}"><button type="button" class="btn btn-primary">Editar</button></a>-->
+      </div>
+    </div>
+  </div>
+</div>
