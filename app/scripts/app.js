@@ -46,6 +46,11 @@ var app = angular
       .when('/funcionario/new', {templateUrl: 'views/funcionario/create.html', controller: 'FuncionarioCtrl'})
       .when('/funcionario/update/:funcionarioID', {templateUrl: 'views/funcionario/editar.html', controller: 'FuncionarioCtrl'})
       
+      //Views Fornecedor
+      .when('/fornecedor', {templateUrl: 'views/fornecedor/fornecedor.html', controller: 'FornecedorCtrl'})
+      .when('/fornecedor/new', {templateUrl: 'views/fornecedor/create.html', controller: 'FornecedorCtrl'})
+      .when('/fornecedor/update/:fornecedorID', {templateUrl: 'views/fornecedor/editar.html', controller: 'FornecedorCtrl'})
+      
       //Default
       .otherwise({
         redirectTo: '/'

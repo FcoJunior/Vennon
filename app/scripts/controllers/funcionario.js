@@ -62,7 +62,7 @@ angular.module('vennonApp')
       object.endereco.EnderecoID = $scope.funcionario.endereco.EnderecoID;
       var entity = createJson(object);
       entity.FuncionarioID = object.FuncionarioID;
-      console.log(entity);
+      
       baseFactory.update('funcionario/' + entity.FuncionarioID, entity)
       .success(function(data, status){
         messageFactory.newMessage(status, '/funcionario');
@@ -93,7 +93,6 @@ angular.module('vennonApp')
     function getFuncionarioById(id){
       baseFactory.show('funcionario/' + id).success(function(data){
         $scope.funcionario = data;
-        console.log($scope.funcionario.cargo);
         $scope.funcionario.endereco = data.endereco[0];
         $scope.funcionario.contato = data.contato[0];
       })

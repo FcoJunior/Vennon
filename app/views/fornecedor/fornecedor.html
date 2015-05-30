@@ -1,0 +1,90 @@
+<h3>Fornecedores</h3>
+<ol class="breadcrumb">
+  <li class="active">Lista de fornecedores</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="col-lg-12 text-right">
+			<a ng-href="#/fornecedor/new"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Novo</button></a>
+		</div>
+
+		<table class="table table-striped text-center">
+			<thead>
+				<tr>
+					<th class="text-center">Cod.</th>
+					<th class="text-center">Razão Social</th>
+					<th class="text-center">CNPJ</th>
+					<th class="text-center">Acão</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="fornecedor in AllFornecedor">
+					<td>{{fornecedor.FornecedorID}}</td>
+					<td style="cursor: pointer"  ng-click="fornecedorDetail(fornecedor.FornecedorID)" data-toggle="modal" data-target="#viewFornecedor"><a>{{fornecedor.razaoSocial}}</a></td></td>
+					<td>{{fornecedor.CNPJ}}</td>
+					<td>
+						<a ng-href="#/fornecedor/update/{{fornecedor.FornecedorID}}"><span data-toggle="tooltip" data-placement="top" title="Editar" class="glyphicon glyphicon-pencil"></span></a> 
+						<a ng-click="delete(fornecedor.FornecedorID, $index)" ><span data-toggle="tooltip" data-placement="top" title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="viewFornecedor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Fornecedor</h4>
+      </div>
+      <div class="modal-body">
+        <dl class="dl-horizontal">
+			<h3>Dados pessoais</h3>
+			<dt>Código</dt>
+			<dd>{{fornecedor.FornecedorID}}</dd>
+			<dt>Razão Social</dt>
+			<dd>{{fornecedor.razaoSocial}}</dd>
+			<dt>CNPJ</dt>
+			<dd>{{fornecedor.CNPJ}}</dd>
+			<dt>IE</dt>
+			<dd>{{fornecedor.IE}}</dd>
+			<dt>Nome Fantasia</dt>
+			<dd>{{fornecedor.nomeFantasia}}</dd>
+			
+			<h3>Endereço</h3>
+			<dt>Logradouro</dt>
+			<dd>{{fornecedor.endereco.logradouro}}</dd>
+			<dt>Complemento</dt>
+			<dd>{{fornecedor.endereco.complemento}}</dd>
+			<dt>Numero</dt>
+			<dd>{{fornecedor.endereco.numero}}</dd>
+			<dt>CEP</dt>
+			<dd>{{fornecedor.endereco.CEP}}</dd>
+			<dt>Bairro</dt>
+			<dd>{{fornecedor.endereco.bairro}}</dd>
+			<dt>Cidade</dt>
+			<dd>{{fornecedor.endereco.cidade}}</dd>
+			<dt>Estado</dt>
+			<dd>{{fornecedor.endereco.estado}}</dd>
+			
+			<h3>Contato</h3>
+			<dt>E-mail</dt>
+			<dd>{{fornecedor.contato.email}}</dd>
+			<dt>Telefone</dt>
+			<dd>{{fornecedor.contato.telefone}}</dd>
+			<dt>Celular</dt>
+			<dd>{{fornecedor.contato.celular}}</dd>
+			
+		</dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<!-- O background do modal continua -->
+        <!--<a ng-href="#/fornecedor/update/{{fornecedorUpdate.FornecedorID}}"><button type="button" class="btn btn-primary">Editar</button></a>-->
+      </div>
+    </div>
+  </div>
+</div>
