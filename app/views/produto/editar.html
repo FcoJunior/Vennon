@@ -1,0 +1,59 @@
+<h3>Produtos</h3>
+<ol class="breadcrumb">
+  <li><a ng-href="#/produto">Lista de produtos</a></li>
+  <li class="active">Editar produto</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form class="form-horizontal" ng-submit="produtoUpdate(produto)">
+			<h4>Dados do Produto:</h4>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Código</label>
+				<div class="col-lg-10">
+					<label class="form-control" ng-model="produto.ProdutoID">{{produto.ProdutoID}}</label>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Nome</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" maxlength="150" ng-model="produto.nome" required="required"/>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">EAN</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" ng-model="produto.EAN" maxlength="20" required="required"/>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Preço</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" ng-model="produto.preco" ui-money-mask="2"/>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Fornecedor</label>
+				<div class="col-lg-8">
+					<select class="form-control" ng-init="produto.fornecedor" ng-model="produto.fornecedor" ng-options="f.razaoSocial for f in fornecedorList" required></select>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Desconto máximo</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" ng-model="produto.desconto" ui-money-mask="2"/>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<div class="col-lg-12 text-right">
+					<button class="btn btn-success" type="submit">Atualizar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,61 @@
+<h3>Notas Fiscais</h3>
+<ol class="breadcrumb">
+  <li class="active">Lista de notas fiscais</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<table class="table table-striped text-center">
+			<thead>
+				<tr>
+					<th class="text-center">Cod.</th>
+					<th class="text-center">Venda</th>
+					<th class="text-center">Data</th>
+					<th class="text-center">Acão</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="nota in AllNotaFiscal">
+					<td style="cursor: pointer"  ng-click="notaDetail(nota.NotaFiscalID)" data-toggle="modal" data-target="#viewNota">{{nota.NotaFiscalID}}</td>
+					<td>{{nota.venda.VendaID}}</td>
+					<td>{{nota.data}}</td>
+					<td> 
+						<a ng-click="cancelNf(nota.NotaFiscalID, $index)" ><span data-toggle="tooltip" data-placement="top" title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="viewNota" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Nota</h4>
+      </div>
+      <div class="modal-body">
+        <dl class="dl-horizontal">
+			<dt>Código</dt>
+			<dd>{{nota.NotaFiscalID}}</dd>
+			<dt>Data</dt>
+			<dd>{{nota.data}}</dd>
+			<dt>Total</dt>
+			<dd>{{nota.total}}</dd>
+			<dt>Venda</dt>
+			<dd>{{nota.venda.VendaID}}</dd>
+			<dt>Vendedor</dt>
+			<dd>{{nota.venda.vendedor.nome}}</dd>
+			<dt>Itens</dt>
+			<dd>{{produto.fornecedor.razaoSocial}}</dd>
+		</dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<!-- O background do modal continua -->
+        <!--<a ng-href="#/produto/update/{{produto.ProdutoID}}"><button type="button" class="btn btn-primary">Editar</button></a>-->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<h3>Produtos</h3>
+<ol class="breadcrumb">
+  <li class="active">Lista de produtos</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="col-lg-12 text-right">
+			<a ng-href="#/produto/new"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Novo</button></a>
+		</div>
+
+		<table class="table table-striped text-center">
+			<thead>
+				<tr>
+					<th class="text-center">Cod.</th>
+					<th class="text-center">Nome</th>
+					<th class="text-center">Preço</th>
+					<th class="text-center">Acão</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="produto in AllProduto">
+					<td>{{produto.ProdutoID}}</td>
+					<td style="cursor: pointer"  ng-click="produtoDetail(produto.ProdutoID)" data-toggle="modal" data-target="#viewProduto"><a>{{produto.nome}}</a></td></td>
+					<td>{{produto.EAN}}</td>
+					<td>
+						<a ng-href="#/produto/update/{{produto.ProdutoID}}"><span data-toggle="tooltip" data-placement="top" title="Editar" class="glyphicon glyphicon-pencil"></span></a> 
+						<a ng-click="delete(produto.ProdutoID, $index)" ><span data-toggle="tooltip" data-placement="top" title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="viewProduto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Produto</h4>
+      </div>
+      <div class="modal-body">
+        <dl class="dl-horizontal">
+			<dt>Código</dt>
+			<dd>{{produto.ProdutoID}}</dd>
+			<dt>Nome</dt>
+			<dd>{{produto.nome}}</dd>
+			<dt>EAN</dt>
+			<dd>{{produto.EAN}}</dd>
+			<dt>Preço</dt>
+			<dd>{{produto.preco}}</dd>
+			<dt>Desconto máximo</dt>
+			<dd>{{produto.desconto}}</dd>
+			<dt>Fornecedor</dt>
+			<dd>{{produto.fornecedor.razaoSocial}}</dd>
+		</dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<!-- O background do modal continua -->
+        <!--<a ng-href="#/produto/update/{{produto.ProdutoID}}"><button type="button" class="btn btn-primary">Editar</button></a>-->
+      </div>
+    </div>
+  </div>
+</div>

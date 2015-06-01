@@ -1,0 +1,129 @@
+<h3>Notas Fiscais</h3>
+<ol class="breadcrumb">
+  <li><a ng-href="#/nota">Lista de notas fiscais</a></li>
+  <li class="active">Nova nota</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form class="form-horizontal" ng-submit="send(nota)">
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Venda</label>
+				<div class="col-lg-10">
+					<label class="form-control">{{venda.VendaID}}</label>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Vendedor</label>
+				<div class="col-lg-10">
+					<label class="form-control">{{venda.vendedor.nome}}</label>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Cliente</label>
+				<div class="col-lg-10">
+					<label class="form-control">{{venda.cliente.nome}}</label>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Emissor</label>
+				<div class="col-lg-8">
+					<select class="form-control" ng-model="nota.emissor" ng-options="e.nome for e in emissor" required></select>
+				</div>
+			</div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Produto</th>
+						<th>Quantidade</th>
+						<th>Desconto</th>
+						<th>Total</th>
+						<th>Ação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in itens">
+						<td>{{item.produto.nome}}</td>
+						<td>{{item.quantidade}}</td>
+						<td>{{item.desconto}}</td>
+						<td>{{item.total}}</td>
+						<td>
+							<a ng-click="remove($index)" ><span data-toggle="tooltip" data-placement="top" title="remover" class="glyphicon glyphicon-trash"></span></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="form-group">
+				<div class="col-lg-12 text-right">
+					<button class="btn btn-warning" type="button" data-toggle="modal" data-target="#viewAddItem">Add Item</button>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Total</label>
+				<div class="col-lg-10">
+					<label class="form-control">{{total}}</label>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<div class="col-lg-12 text-right">
+					<button class="btn btn-success" type="submit">Emitir Nota Fiscal</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="viewAddItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Adicionar Item</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-horizontal">
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Produto</label>
+				<div class="col-lg-8">
+					<select class="form-control" ng-model="item.produto" ng-options="p.nome for p in produto"></select>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Preço</label>
+				<div class="col-lg-8">
+					<label class="form-control">{{item.produto.preco}}</label>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Quantidade</label>
+				<div class="col-lg-8">
+					<input type="number" class="form-control" ng-model="item.quantidade"/>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Desconto</label>
+				<div class="col-lg-8">
+					<input type="text" class="form-control" ng-model="item.desconto" ui-money-mask="2"/>
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Total</label>
+				<div class="col-lg-8">
+					<label class="form-control">{{item.total = (item.quantidade * item.produto.preco) - item.desconto}}</label>
+				</div>	
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addItem(item)">Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>

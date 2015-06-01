@@ -1,0 +1,30 @@
+<h3>Vendas</h3>
+<ol class="breadcrumb">
+  <li><a ng-href="#/venda">Lista de vendas</a></li>
+  <li class="active">Nova venda</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form class="form-horizontal" ng-submit="send(venda)">
+			<h4>Dados da Venda:</h4>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Vendedor</label>
+				<div class="col-lg-10">
+					<select class="form-control" ng-model="venda.vendedor" ng-options="v.nome for v in vendedorList" required></select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Cliente</label>
+				<div class="col-lg-10">
+					<select class="form-control" ng-model="venda.cliente" ng-options="c.nome for c in clienteList" required></select>
+				</div>
+			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<div class="col-lg-12 text-right">
+					<button class="btn btn-success" type="submit">Criar venda</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

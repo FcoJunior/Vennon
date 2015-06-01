@@ -29,13 +29,13 @@ angular.module('vennonApp')
         });
       };
       
-      if($location.path() === '/funcionario/update/' + $routeParams.funcionarioID){
-        //Lista o funcionário para atualizar
-        getFuncionarioById($routeParams.funcionarioID);
-        baseFactory.show('/cargo').success(function(data){
-          $scope.cargoList = data;   
-        });
-      };
+    if($location.path() === '/funcionario/update/' + $routeParams.funcionarioID){
+      //Lista o funcionário para atualizar
+      getFuncionarioById($routeParams.funcionarioID);
+      baseFactory.show('/cargo').success(function(data){
+        $scope.cargoList = data;   
+      });
+    };
     
     //Cria um novo funcionário
     $scope.send = function(object){

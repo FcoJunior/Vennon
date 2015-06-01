@@ -1,0 +1,68 @@
+<h3>Vendas</h3>
+<ol class="breadcrumb">
+  <li class="active">Lista de vendas</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="col-lg-12 text-right">
+			<a ng-href="#/venda/new"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Nova</button></a>
+		</div>
+
+		<table class="table table-striped text-center">
+			<thead>
+				<tr>
+					<th class="text-center">Cod.</th>
+					<th class="text-center">Vendedor</th>
+					<th class="text-center">Data</th>
+					<th class="text-center">Acão</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="venda in AllVenda">
+					<td style="cursor: pointer"  ng-click="vendaDetail(venda.VendaID)" data-toggle="modal" data-target="#viewVenda"><a>{{venda.VendaID}}</a></td>
+					<td>{{venda.vendedor.nome}}</td>
+					<td>{{venda.data}}</td>
+					<td>
+						<a ng-href="#/nota/new/{{venda.VendaID}}"><span data-toggle="tooltip" data-placement="top" title="Nova Nota Fiscal" class="glyphicon glyphicon-file"></span></a>
+						<a ng-href="#/venda/update/{{venda.VendaID}}"><span data-toggle="tooltip" data-placement="top" title="Editar" class="glyphicon glyphicon-pencil"></span></a> 
+						<!-- Cancelar Venda -->
+						<a ng-click="delete(venda.VendaID, $index)" ><span data-toggle="tooltip" data-placement="top" title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- modal -->
+<div class="modal fade" id="viewVenda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Venda</h4>
+      </div>
+      <div class="modal-body">
+        <dl class="dl-horizontal">
+			<dt>Código da Venda</dt>
+			<dd>{{venda.VendaID}}</dd>
+			<dt>Vendedor</dt>
+			<dd>{{venda.vendedor.nome}}</dd>
+			<dt>Número de NF</dt>
+			<dd>{{produto.totalNF}}</dd>
+			<dt>Total</dt>
+			<dd>R$ {{produto.total}}</dd>
+			<dt>Status</dt>
+			<dd>{{venda.status}}</dd>
+			<dt>Data</dt>
+			<dd>{{venda.data}}</dd>
+		</dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<!-- O background do modal continua -->
+        <!--<a ng-href="#/venda/update/{{venda.VendaID}}"><button type="button" class="btn btn-primary">Editar</button></a>-->
+      </div>
+    </div>
+  </div>
+</div>

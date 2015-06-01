@@ -51,6 +51,21 @@ var app = angular
       .when('/fornecedor/new', {templateUrl: 'views/fornecedor/create.html', controller: 'FornecedorCtrl'})
       .when('/fornecedor/update/:fornecedorID', {templateUrl: 'views/fornecedor/editar.html', controller: 'FornecedorCtrl'})
       
+      //Views Produto
+      .when('/produto', {templateUrl: 'views/produto/produto.html', controller: 'ProdutoCtrl'})
+      .when('/produto/new', {templateUrl: 'views/produto/create.html', controller: 'ProdutoCtrl'})
+      .when('/produto/update/:produtoID', {templateUrl: 'views/produto/editar.html', controller: 'ProdutoCtrl'})
+      
+      //Views Venda
+      .when('/venda', {templateUrl: 'views/venda/venda.html', controller: 'VendaCtrl'})
+      .when('/venda/new', {templateUrl: 'views/venda/create.html', controller: 'VendaCtrl'})
+      .when('/venda/update/:vendaID', {templateUrl: 'views/venda/update.html', controller: 'VendaCtrl'})
+      
+      //Views Nota Fiscal
+      .when('/nota', {templateUrl: 'views/nota/nota.html', controller: 'NotaCtrl'})
+      .when('/nota/new/:vendaID', {templateUrl: 'views/nota/create.html', controller: 'NotaCtrl'})
+      //.when('/nota', {templateUrl: 'views/nota.html', controller: 'NotaCtrl'})
+      
       //Default
       .otherwise({
         redirectTo: '/'
