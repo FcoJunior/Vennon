@@ -59,7 +59,7 @@ var app = angular
       //Views Venda
       .when('/venda', {templateUrl: 'views/venda/venda.html', controller: 'VendaCtrl'})
       .when('/venda/new', {templateUrl: 'views/venda/create.html', controller: 'VendaCtrl'})
-      .when('/venda/update/:vendaID', {templateUrl: 'views/venda/update.html', controller: 'VendaCtrl'})
+      .when('/venda/update/:vendaID', {templateUrl: 'views/venda/editar.html', controller: 'VendaCtrl'})
       
       //Views Nota Fiscal
       .when('/nota', {templateUrl: 'views/nota/nota.html', controller: 'NotaCtrl'})
