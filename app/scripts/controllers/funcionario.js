@@ -16,12 +16,14 @@ angular.module('vennonApp')
       'Karma'
     ];
     
+    $scope.lanca_nota = false;
+    
     if($location.path() === '/funcionario'){
       //Lista os funcionários
       baseFactory.show('funcionario').success(function (data) {
         $scope.AllFuncionario = data;
       });  
-    }
+    };
     
     if($location.path() === '/funcionario/new'){
         baseFactory.show('/cargo').success(function(data){
@@ -40,7 +42,6 @@ angular.module('vennonApp')
     //Cria um novo funcionário
     $scope.send = function(object){
       var entity = createJson(object);
-      
       //Função para enviar dados para o back-end
       baseFactory.create('funcionario', entity)
       .success(function(data, status){
@@ -98,14 +99,15 @@ angular.module('vennonApp')
       })
       .error(function(data, status){
         messageFactory.newMessage(status, '/funcionario');
-      });;
-    }
+      });
+    };
     
     //Serializa Json
     function createJson(object){
       var json = {};
       json.nome = object.nome;
       json.CPF = object.CPF;
+      json.lancaNota = object.lancaNota;
       json.cargo = object.cargo;
       json.contato = [];
       json.contato.push(object.contato);

@@ -19,7 +19,7 @@
 					<td>{{nota.venda.VendaID}}</td>
 					<td>{{nota.data}}</td>
 					<td> 
-						<a ng-click="cancelNf(nota.NotaFiscalID, $index)" ><span data-toggle="tooltip" data-placement="top" title="Excluir" class="glyphicon glyphicon-trash"></span></a>
+						<a ng-click="cancelNf(nota.NotaFiscalID, $index)" ><span data-toggle="tooltip" data-placement="top" title="Excluir" class="glyphicon glyphicon-remove-circle"></span></a>
 					</td>
 				</tr>
 			</tbody>
@@ -47,9 +47,32 @@
 			<dd>{{nota.venda.VendaID}}</dd>
 			<dt>Vendedor</dt>
 			<dd>{{nota.venda.vendedor.nome}}</dd>
+			<dt>Cliente</dt>
+			<dd>{{nota.venda.cliente.nome}}</dd>
+			<dt>Emissor</dt>
+			<dd>{{nota.emissor.nome}}</dd>
 			<dt>Itens</dt>
-			<dd>{{produto.fornecedor.razaoSocial}}</dd>
 		</dl>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Cód.</th>
+					<th>Nome</th>
+					<th>Quantidade</th>
+					<th>Desconto</th>
+					<th>Valor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in nota.itens">
+					<td>{{item.produto.ProdutoID}}</td>
+					<td>{{item.produto.nome}}</td>
+					<td>{{item.quantidade}}</td>
+					<td>{{item.desconto}}</td>
+					<td>{{item.total}}</td>
+				</tr>
+			</tbody>
+		</table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

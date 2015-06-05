@@ -16,6 +16,9 @@ angular.module('vennonApp')
       'Karma'
     ];
     
+    //Aloca a posição do item no array
+    var rowCancel;
+    
     if($location.path() === '/nota'){
       //Lista as notas
       baseFactory.show('notafiscal').success(function (data) {
@@ -66,6 +69,29 @@ angular.module('vennonApp')
       });
     };
     
+    //Pega a posição do item a ser cancelado
+    $scope.setIndex = function(row){
+      rowCancel = row;
+    };
+    
+    //Cancela item da nota
+    $scope.cancelItem = function(user){
+      baseFactory.update('login/' + user.FuncionarioID, user)
+      .success(function(data, status){
+        alert("Item cancelado");
+        if(status === 200){
+          $scope.itens.splice(rowCancel, 1);
+          //Função para subtrair do total o valor cancelado
+          //$scope.total -= object.total;
+        }
+        $scope.admin = {};
+      })
+      .error(function(data, status){
+        //mensagem personalizada
+        $scope.admin = {};
+      });
+    };
+    
     //Busca um funcionário pelo ID
     $scope.notaDetail = function (id) {
       getNotaById(id);
@@ -77,7 +103,7 @@ angular.module('vennonApp')
     };
     
     function cancel(id, row) {
-      baseFactory.destroy('notafiscal/' + id)
+      baseFactory.update('notafiscal/' + id)
       .success(function(data, status){
         messageFactory.newMessage(status, '/notafiscal');
       })
@@ -92,7 +118,9 @@ angular.module('vennonApp')
       //emissor
       json.emissor = object.emissor;
       json.itens = $scope.itens;
-      
+      if($scope.lancaNota){
+        json.lancaNota = true;
+      }
       return json;
     }; 
     

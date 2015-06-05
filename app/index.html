@@ -41,7 +41,13 @@
 
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/venda">Vendas</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Gerenciar <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a ng-href="#/venda">Vendas</a></li>
+                  <li><a ng-href="#/nota">Notas Fiscais</a></li>  
+                </ul>
+              </li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown">Cadastro <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -51,7 +57,7 @@
                   <li><a ng-href="#/fornecedor">Fornecedor</a></li>
                   <li><a ng-href="#/produto">Produto</a></li>  
                 </ul>
-              </li>  
+              </li>
               <li><a ng-href="#/relatorio">Relatórios</a></li>
               <li><a ng-href="#/about">About</a></li>
             </ul>

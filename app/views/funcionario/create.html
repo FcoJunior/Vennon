@@ -28,6 +28,15 @@
 					<select class="form-control" ng-model="funcionario.cargo" ng-options="c.cargo for c in cargoList"></select>
 				</div>
 			</div>
+			<!--/from-group-->
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Emissor</label>
+				<div class="col-lg-8">
+					<div class="checkbox">
+						<input type="checkbox" ng-value="!lanca_nota" ng-model="funcionario.lancaNota"/> Sim 
+					</div>
+				</div>
+			</div>
 			<hr class="divider"/>
 			
 			<h4>Endereço:</h4>

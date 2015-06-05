@@ -84,6 +84,16 @@ angular.module('vennonApp')
       });
     };
     
+    //Cancelar Venda
+    $scope.cancel = function(id){
+      baseFactory.update('cancelarvenda/' + id).success(function(data, status){
+        messageFactory.newMessage(status, '/venda');
+      })
+      .error(function(data, status){
+        messageFactory.newMessage(status, '/venda');
+      });
+    };
+    
     //Exclui a venda
     $scope.delete = function(id, row){
       messageFactory.confirmMessage('/venda', exclude(id, row));
