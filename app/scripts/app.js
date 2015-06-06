@@ -66,6 +66,11 @@ var app = angular
       .when('/nota/new/:vendaID', {templateUrl: 'views/nota/create.html', controller: 'NotaCtrl'})
       //.when('/nota', {templateUrl: 'views/nota.html', controller: 'NotaCtrl'})
       
+      //Views Relatório
+      .when('/relatorio_nota', {templateUrl: 'views/nota/relatorio_nota.html', controller: 'NotaCtrl'})
+      .when('/relatorio_produto', {templateUrl: 'views/produto/relatorio_produto.html', controller: 'ProdutoCtrl'})
+      .when('/relatorio_funcionario', {templateUrl: 'views/funcionario/ranking.html', controller: 'FuncionarioCtrl'})
+      
       //Default
       .otherwise({
         redirectTo: '/'

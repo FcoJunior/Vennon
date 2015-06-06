@@ -39,6 +39,12 @@ angular.module('vennonApp')
       });
     };
     
+    if($location.path() === '/relatorio_funcionario'){
+      baseFactory.show('relatoriofuncionario').success(function(data){
+        $scope.vendedores = data;
+      });
+    };
+    
     //Cria um novo funcionário
     $scope.send = function(object){
       var entity = createJson(object);

@@ -24,7 +24,7 @@ angular.module('vennonApp')
     }
     
     if($location.path() === '/produto/new'){
-        baseFactory.show('/fornecedor').success(function(data){
+        baseFactory.show('fornecedor').success(function(data){
           $scope.fornecedorList = data;   
         });
       };
@@ -32,8 +32,26 @@ angular.module('vennonApp')
     if($location.path() === '/produto/update/' + $routeParams.produtoID){
       //Lista o funcionário para atualizar
       getProdutoById($routeParams.produtoID);
-      baseFactory.show('/fornecedor').success(function(data){
+      baseFactory.show('fornecedor').success(function(data){
         $scope.fornecedorList = data;   
+      });
+    };
+    
+    if($location.path() === '/relatorio_produto'){
+      baseFactory.show('fornecedor').success(function(data){
+        $scope.fornecedores = data;
+      });
+    };
+    
+    $scope.filtrar = function(id){
+      if(id === undefined){
+        var uri = "relatorioproduto";
+      }else{
+        uri = "relatorioproduto/" + id.FornecedorID;
+      };
+      console.log(id, uri);
+      baseFactory.show(uri).success(function(data){
+        $scope.produtos = data;
       });
     };
     

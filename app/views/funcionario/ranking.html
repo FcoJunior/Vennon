@@ -1,0 +1,26 @@
+<h3>Funcionários</h3>
+<ol class="breadcrumb">
+  <li><a ng-href="#/nota">Lista de funcionarios</a></li>
+  <li class="active">Relatório</li>
+</ol>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<h1>Ranking de Vendedores</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Cód.</th>
+					<th>Nome</th>
+					<th>Quantidade Vendida</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="vendedor in vendedores">
+					<td>{{vendedor.FuncionarioID}}</td>
+					<td>{{vendedor.nome}}</td>
+					<td>{{vendedor.comissao}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

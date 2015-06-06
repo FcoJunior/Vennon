@@ -46,6 +46,23 @@ angular.module('vennonApp')
       $scope.total = 0.0;
     };
     
+    if($location.path() === '/relatorio_nota'){
+      baseFactory.show('cliente').success(function(data){
+        $scope.clientes = data;
+      });
+    };
+    
+    $scope.filtrar = function(id){
+      if(id === undefined){
+        var uri = "relatorionotafiscal";
+      }else{
+        uri = "relatorionotafiscal/" + id.ClienteID;
+      };
+      baseFactory.show(uri).success(function(data){
+        $scope.notas = data;
+      });
+    };
+    
     //Adiciona produtos no array
     $scope.addItem = function (object){
       var entity = {};
