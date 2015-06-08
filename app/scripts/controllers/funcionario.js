@@ -43,6 +43,10 @@ angular.module('vennonApp')
       baseFactory.show('relatoriofuncionario').success(function(data){
         $scope.vendedores = data;
       });
+      baseFactory.show('relatoriovenda').success(function(data){
+        $scope.venda = data;
+        console.log(data);
+      });
     };
     
     //Cria um novo funcionário
